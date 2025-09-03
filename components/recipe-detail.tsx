@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -44,18 +45,18 @@ export function RecipeDetail({
               <DialogTitle className="text-2xl mb-2">
                 {recipe.title}
               </DialogTitle>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
+              <DialogDescription className="flex items-center gap-4 text-sm">
+                <span className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
                   Created {new Date(recipe.createdAt).toLocaleDateString()}
-                </div>
+                </span>
                 {recipe.updatedAt !== recipe.createdAt && (
-                  <div className="flex items-center gap-1">
+                  <span className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
                     Updated {new Date(recipe.updatedAt).toLocaleDateString()}
-                  </div>
+                  </span>
                 )}
-              </div>
+              </DialogDescription>
             </div>
             <div className="flex gap-2 mt-6">
               <Button

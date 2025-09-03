@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -90,11 +91,11 @@ export function RecipeForm({
           <DialogTitle className="text-2xl">
             {isEditing ? "Edit Recipe" : "Add New Recipe"}
           </DialogTitle>
-          <p className="text-sm text-muted-foreground">
+          <DialogDescription>
             {isEditing
               ? "Update your recipe details"
               : "Share your culinary creation with the world"}
-          </p>
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
