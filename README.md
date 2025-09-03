@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipe Manager
+
+A simple recipe management application built with Next.js 15, React 19, and modern web technologies.
+
+## Features
+
+- ✅ Create new recipes with title, ingredients, instructions, and optional image
+- ✅ View all recipes in a beautiful card layout
+- ✅ Edit existing recipes
+- ✅ Delete recipes with confirmation dialog
+- ✅ View detailed recipe information
+- ✅ Data persistence using localStorage
+- ✅ Form validation with React Hook Form and Zod
+- ✅ Modern UI with Shadcn/ui components and Tailwind CSS
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS 4
+- **Components**: Shadcn/ui
+- **Forms**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+- **Data Storage**: localStorage
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+├── app/                    # Next.js App Router
+│   ├── globals.css        # Global styles and CSS variables
+│   ├── layout.tsx         # Root layout component
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # Shadcn/ui components
+│   ├── recipe-form.tsx   # Recipe creation/editing form
+│   ├── recipe-list.tsx   # Recipe list display
+│   ├── recipe-detail.tsx # Recipe detail view
+│   └── delete-dialog.tsx # Delete confirmation dialog
+├── lib/                  # Utility functions
+│   ├── types.ts          # TypeScript types and Zod schemas
+│   ├── storage.ts        # localStorage utilities
+│   └── utils.ts          # General utilities
+└── public/               # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Add a Recipe**: Click the "Add Recipe" button to create a new recipe
+2. **View Recipes**: Browse all your recipes in the main page
+3. **View Details**: Click "View" on any recipe card to see full details
+4. **Edit Recipe**: Click the edit button to modify a recipe
+5. **Delete Recipe**: Click the delete button and confirm to remove a recipe
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Data Storage
 
-## Learn More
+All recipe data is stored in the browser's localStorage under the key "recipes". The data persists between browser sessions but is specific to each browser/device.
 
-To learn more about Next.js, take a look at the following resources:
+## Future Enhancements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The PRD mentions potential AI integration features:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Recipe summarization using LLMs
+- Automatic ingredient parsing
+- Recipe recommendations based on available ingredients
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Build**: `npm run build`
+- **Lint**: `npm run lint`
+- **Type Check**: `npx tsc --noEmit`
