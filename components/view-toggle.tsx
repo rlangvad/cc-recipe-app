@@ -7,42 +7,43 @@ import { cn } from "@/lib/utils";
 export type ViewMode = "grid" | "list";
 
 interface ViewToggleProps {
-  viewMode: ViewMode;
-  onViewModeChange: (viewMode: ViewMode) => void;
+  currentView: ViewMode;
+  onViewChange: (view: ViewMode) => void;
   className?: string;
 }
 
-export function ViewToggle({ viewMode, onViewModeChange, className }: ViewToggleProps) {
+export function ViewToggle({ currentView, onViewChange, className }: ViewToggleProps) {
   return (
     <div className={cn("flex items-center gap-1 p-1 bg-muted rounded-lg", className)}>
       <Button
-        variant={viewMode === "grid" ? "default" : "ghost"}
+        variant={currentView === "grid" ? "default" : "ghost"}
         size="sm"
-        onClick={() => onViewModeChange("grid")}
+        onClick={() => onViewChange("grid")}
         className={cn(
           "h-8 px-3 transition-all duration-200",
-          viewMode === "grid"
+          currentView === "grid"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "hover:bg-accent hover:text-accent-foreground"
+            : "hover:bg-background hover:text-foreground"
         )}
         aria-label="Switch to grid view"
-        aria-pressed={viewMode === "grid"}
+        aria-pressed={currentView === "grid"}
       >
         <Grid3X3 className="h-4 w-4" />
         <span className="sr-only">Grid view</span>
       </Button>
+      
       <Button
-        variant={viewMode === "list" ? "default" : "ghost"}
+        variant={currentView === "list" ? "default" : "ghost"}
         size="sm"
-        onClick={() => onViewModeChange("list")}
+        onClick={() => onViewChange("list")}
         className={cn(
           "h-8 px-3 transition-all duration-200",
-          viewMode === "list"
+          currentView === "list"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "hover:bg-accent hover:text-accent-foreground"
+            : "hover:bg-background hover:text-foreground"
         )}
         aria-label="Switch to list view"
-        aria-pressed={viewMode === "list"}
+        aria-pressed={currentView === "list"}
       >
         <List className="h-4 w-4" />
         <span className="sr-only">List view</span>
